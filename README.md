@@ -1,10 +1,6 @@
 # ISLES'24: Ischemic Stroke Lesion Segmentation Challenge 2024
 
-![alt text](https://github.com/ezequieldlrosa/isles24/blob/main/isles-logo.png)
-
-## Aims
-
-
+![alt text](https://github.com/ezequieldlrosa/isles24/blob/main/isles_logo.png)
 
 ## Challenge task
 The goal of this challenge is to evaluate automated methods of stroke lesion segmentation. Participants are tasked with automatically generating lesion segmentation masks using acute imaging data (NCCT, CTA and CTP) and clinical tabular data. The task consists on a single phase of algorithmic evaluation. Participants will submit their segmentation model ("algorithm") via a Docker container which will then be used to generate predictions on a hidden test dataset.
