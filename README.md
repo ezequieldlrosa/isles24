@@ -1,6 +1,6 @@
 # ISLES'24: Ischemic Stroke Lesion Segmentation Challenge 2024
 
-![alt text](https://github.com/ezequieldlrosa/isles24/blob/main/isles-logo.png)
+![alt text](https://github.com/ezequieldlrosa/isles24/blob/main/isles_logo.png)
 
 ## Aims
 
