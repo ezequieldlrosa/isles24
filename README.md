@@ -62,7 +62,7 @@ A Jupyter notebook is provided to get started with ISLES'24. The notebook will g
 
 
 ## License
-Users of the ISLES'24 data must abide by the Data Usage Policy and the OPEN DATA license, following the definitions of “https://opendata.swiss/en/terms-of-use” on open data use. The ISLES'24 repository is under the MIT License.
+The dataset is released under the CC BY-NC (Attribution-NonCommercial) license. Users of the ISLES'24 data must abide by the Data Usage Policy and the OPEN DATA license, following the definitions of “https://opendata.swiss/en” on open data use. The ISLES'24 repository is under the MIT License.
 
 ## Contact
 Please email [Ezequiel de la Rosa](ezequiel.delarosa@uzh.ch) for questions not fitting in a Github issue.
