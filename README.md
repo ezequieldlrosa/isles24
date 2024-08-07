@@ -52,7 +52,7 @@ Metrics used in this challenge are found in utils/eval_utils and are also used t
 For information about the ranking computation, please check the challenge [document](https://zenodo.org/records/10991145).
 
 ## Getting started
-A [Jupyter notebook] (https://github.com/ezequieldlrosa/isles24/blob/main/utils/isles24_evaluate.ipynb) is provided to get started with ISLES'24. The notebook will guide you through the data loading process and performance evaluation of a simple segmentation approach. Given data size constrains, only a few images for the sample case are uploaded.
+A [Jupyter notebook](https://github.com/ezequieldlrosa/isles24/blob/main/utils/isles24_evaluate.ipynb) is provided to get started with ISLES'24. The notebook will guide you through the data loading process and performance evaluation of a simple segmentation approach. Given data size constrains, only a few images for the sample case are uploaded.
 
 ## Citation
 
