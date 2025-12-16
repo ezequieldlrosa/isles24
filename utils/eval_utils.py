@@ -93,7 +93,7 @@ def compute_dice_f1_instance_difference(ground_truth, prediction, empty_value=1.
     evaluator = Panoptica_Evaluator(
     expected_input=InputType.SEMANTIC,
     instance_approximator=ConnectedComponentsInstanceApproximator(),
-    instance_matcher=NaiveThresholdMatching(),
+    instance_matcher=NaiveThresholdMatching(matching_threshold=0.2),
     )
     
     result, _ = evaluator.evaluate(prediction, ground_truth, verbose=False)["ungrouped"]
