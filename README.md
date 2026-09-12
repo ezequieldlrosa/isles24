@@ -75,8 +75,6 @@ The explorer provides an interactive interface for comparing the **training and 
 
 Continuous variables are displayed as boxplots reconstructed from the reported summary statistics, while categorical variables are shown as grouped bar plots with percentages or counts.
 
-For each comparison, the corresponding **statistical test and p-value** are displayed, with statistically significant differences highlighted directly in the visualization.
-
 The summarized clinical data used by the explorer are available in [`isles24_summary.xlsx`](https://github.com/ezequieldlrosa/isles24/blob/main/isles24_summary.xlsx).
 
 ### Run the explorer
