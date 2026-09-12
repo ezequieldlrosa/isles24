@@ -121,11 +121,11 @@ If you use the ISLES'24 dataset, challenge framework, evaluation tools, or clini
 > de la Rosa, Ezequiel, et al. **"ISLES'24: Final Infarct Prediction with Multimodal Imaging and Clinical Data. Where Do We Stand?."** *arXiv preprint arXiv:2408.10966* (2024).
 
 ```bibtex
-@article{delarosa2024isles24,
-  title   = {ISLES'24: Final Infarct Prediction with Multimodal Imaging and Clinical Data. Where Do We Stand?},
-  author  = {de la Rosa, Ezequiel and others},
-  journal = {arXiv preprint arXiv:2408.10966},
-  year    = {2024}
+@article{de2024isles,
+  title={ISLES'24: Final Infarct Prediction with Multimodal Imaging and Clinical Data. Where Do We Stand?},
+  author={de la Rosa, Ezequiel and Su, Ruisheng and Reyes, Mauricio and Riedel, Evamaria O and Baazaoui, Hakim and Wiest, Roland and Kofler, Florian and Yang, Kaiyuan and Robben, David and Mojtahedi, Mahsa and others},
+  journal={arXiv preprint arXiv:2408.10966},
+  year={2024}
 }
 ```
 
