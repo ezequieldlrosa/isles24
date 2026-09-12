@@ -1,97 +1,136 @@
 # ISLES'24: Ischemic Stroke Lesion Segmentation Challenge 2024
 
-![alt text](https://github.com/ezequieldlrosa/isles24/blob/main/isles_logo.png)
+<p align="center">
+  <img src="isles_logo.png" alt="ISLES'24 logo" width="700">
+</p>
+
+ISLES'24 focuses on the prediction of **final stroke infarction from acute multimodal imaging and clinical data**. The challenge provides a clinically realistic benchmark combining NCCT, CTA, CTP, perfusion maps, and structured clinical information.
 
 ## Challenge task
-The goal of this challenge is to evaluate automated methods of stroke lesion segmentation. Participants are tasked with automatically generating lesion segmentation masks using acute imaging data (NCCT, CTA and CTP) and clinical tabular data. The task consists on a single phase of algorithmic evaluation. Participants will submit their segmentation model ("algorithm") via a Docker container which will then be used to generate predictions on a hidden test dataset.
+
+The goal of ISLES'24 is to evaluate automated methods for **final stroke infarct segmentation**.
+
+Participants develop algorithms that predict the final infarct from pre-interventional acute stroke data, including:
+
+- non-contrast CT (**NCCT**);
+- CT angiography (**CTA**);
+- perfusion CT (**CTP**) and derived perfusion maps;
+- clinical tabular data.
+
+Algorithms are submitted as Docker containers and evaluated automatically on a hidden test dataset.
 
 ## Data
-You can access the ISLES'24 data after registration to the [challenge](https://isles-24.grand-challenge.org/).
 
-Data is organized following the Brain Imaging Data Structure (BIDS; https://bids.neuroimaging.io/). A single case-sample is structured as follows:
+The ISLES'24 dataset is available after registration on the [challenge website](https://isles-24.grand-challenge.org/).
+
+The data follow the **Brain Imaging Data Structure (BIDS)** convention. A single case is organized approximately as follows:
 
 ```text
 +-- rawdata
 |   +-- sub-strokecase0001
 |       +-- ses-0001
 |           +-- perfusion-maps
-|           		+-- sub-strokecase0001_ses-0001_tmax.nii.gz 
-|           		+-- sub-strokecase0001_ses-0001_mtt.nii.gz 
-|           		+-- sub-strokecase0001_ses-0001_cbf.nii.gz 
-|           		+-- sub-strokecase0001_ses-0001_cbv.nii.gz 
-|           +-- sub-strokecase0001_ses-0001_ncct.nii.gz 
-|           +-- sub-strokecase0001_ses-0001_cta.nii.gz 
-|           +-- sub-strokecase0001_ses-0001_ctp.nii.gz 
-|.      +-- ses-0002
-|           +-- sub-strokecase0009_ses-0001_dwi.nii.gz
-|           +-- sub-strokecase0009_ses-0001_adc.nii.gz
+|           |   +-- sub-strokecase0001_ses-0001_tmax.nii.gz
+|           |   +-- sub-strokecase0001_ses-0001_mtt.nii.gz
+|           |   +-- sub-strokecase0001_ses-0001_cbf.nii.gz
+|           |   +-- sub-strokecase0001_ses-0001_cbv.nii.gz
+|           +-- sub-strokecase0001_ses-0001_ncct.nii.gz
+|           +-- sub-strokecase0001_ses-0001_cta.nii.gz
+|           +-- sub-strokecase0001_ses-0001_ctp.nii.gz
+|       +-- ses-0002
+|           +-- sub-strokecase0001_ses-0002_dwi.nii.gz
+|           +-- sub-strokecase0001_ses-0002_adc.nii.gz
+|
 +-- derivatives
 |   +-- sub-strokecase0001
 |       +-- ses-0001
 |           +-- perfusion-maps
-|           		+-- sub-strokecase0001_ses-0001_space-ncct_tmax.nii.gz 
-|           		+-- sub-strokecase0001_ses-0001_space-ncct_mtt.nii.gz 
-|           		+-- sub-strokecase0001_ses-0001_space-ncct_cbf.nii.gz 
-|           		+-- sub-strokecase0001_ses-0001_space-ncct_cbv.nii.gz 
-|           +-- sub-strokecase0001_ses-0001_space-ncct_cta.nii.gz 
-|           +-- sub-strokecase0001_ses-0001_space-ncct_ctp.nii.gz 
-|.      +-- ses-0002
-|           +-- sub-strokecase0009_ses-0001_lesion-msk.nii.gz
-+-- phenotype
-|       +-- ses-0001
-|           +-- sub-strokecase0001_ses-0001_demographic_baseline.csv
+|           |   +-- sub-strokecase0001_ses-0001_space-ncct_tmax.nii.gz
+|           |   +-- sub-strokecase0001_ses-0001_space-ncct_mtt.nii.gz
+|           |   +-- sub-strokecase0001_ses-0001_space-ncct_cbf.nii.gz
+|           |   +-- sub-strokecase0001_ses-0001_space-ncct_cbv.nii.gz
+|           +-- sub-strokecase0001_ses-0001_space-ncct_cta.nii.gz
+|           +-- sub-strokecase0001_ses-0001_space-ncct_ctp.nii.gz
 |       +-- ses-0002
-|           +-- sub-strokecase0001_ses-0001_outcome.csv
+|           +-- sub-strokecase0001_ses-0002_lesion-msk.nii.gz
+|
++-- phenotype
+    +-- ses-0001
+    |   +-- sub-strokecase0001_ses-0001_demographic_baseline.csv
+    +-- ses-0002
+        +-- sub-strokecase0001_ses-0002_outcome.csv
 ```
 
-## Clinical data exploration
+More information about BIDS is available at [bids.neuroimaging.io](https://bids.neuroimaging.io/).
 
-An interactive [Jupyter notebook](https://github.com/ezequieldlrosa/isles24/blob/main/utils/isles24_clinical_data_explorer.ipynb) is provided for exploring the clinical characteristics of the ISLES'24 cohort.
+## Explore the clinical data
 
-The notebook provides an interactive interface to visualize the clinical summary data and compare:
+The repository includes an interactive **[ISLES'24 Clinical Data Explorer](https://github.com/ezequieldlrosa/isles24/blob/main/utils/isles24_clinical_data_explorer.ipynb)** for exploring the clinical characteristics of the challenge cohort.
 
-- the **training and test cohorts**;
-- patients from **Center 1 and Center 2**;
-- continuous and categorical clinical variables.
+<p align="center">
+  <img src="explorer.png" alt="ISLES'24 Clinical Data Explorer" width="900">
+</p>
 
-Continuous variables are visualized using boxplots reconstructed from the available summary statistics, including the median, interquartile range, and reported distribution limits. Categorical variables are visualized using grouped bar plots showing either percentages or counts.
+The explorer provides an interactive interface for comparing the **training and test cohorts** and patients from **Center 1 and Center 2** across continuous, categorical, and ordinal clinical variables.
 
-For each comparison, the notebook also reports the corresponding **statistical test and p-value**, with statistically significant differences highlighted in the visualization.
+Continuous variables are displayed as boxplots reconstructed from the reported summary statistics, while categorical variables are shown as grouped bar plots with percentages or counts.
 
-The summarized clinical data used by the notebook are available in [`isles24_summary.xlsx`](https://github.com/ezequieldlrosa/isles24/blob/main/isles24_summary.xlsx).
+For each comparison, the corresponding **statistical test and p-value** are displayed, with statistically significant differences highlighted directly in the visualization.
 
-To run the clinical data explorer locally:
+The summarized clinical data used by the explorer are available in [`isles24_summary.xlsx`](https://github.com/ezequieldlrosa/isles24/blob/main/isles24_summary.xlsx).
+
+### Run the explorer
+
+Clone the repository, install the dependencies, and launch the notebook:
 
 ```bash
+git clone https://github.com/ezequieldlrosa/isles24.git
+cd isles24
 pip install -r requirements.txt
-jupyter lab
+jupyter lab utils/isles24_clinical_data_explorer.ipynb
 ```
 
-Then open:
-
-```text
-utils/isles24_clinical_data_explorer.ipynb
-```
+That's it. The notebook will open directly in JupyterLab.
 
 ## Performance evaluation
-Metrics used in this challenge are found in `utils/eval_utils` and are also used to rank the teams in the challenge:
 
-* Dice Score
-* Absolute volume difference
-* Absolute lesion count difference
-* Lesion-wise F1-Score
+The evaluation utilities used by ISLES'24 are provided in [`utils/eval_utils`](https://github.com/ezequieldlrosa/isles24/tree/main/utils/eval_utils).
 
-For information about the ranking computation, please check the challenge [document](https://zenodo.org/records/10991145).
+The challenge evaluates predictions using four complementary metrics:
 
-## Getting started
+- **Dice Similarity Coefficient** — voxel-wise spatial overlap;
+- **Absolute Volume Difference (AVD)** — agreement in predicted infarct volume;
+- **Lesion-wise F1-score** — lesion detection performance;
+- **Absolute Lesion Count Difference (ALCD)** — agreement in the number of detected lesions.
+
+For details about the challenge design and ranking procedure, see the [ISLES'24 challenge documentation](https://zenodo.org/records/10991145).
+
+## Notebooks
+
 Two Jupyter notebooks are provided in this repository:
 
-- [ISLES'24 evaluation notebook](https://github.com/ezequieldlrosa/isles24/blob/main/utils/isles24_evaluate.ipynb) — guides users through the data loading process and performance evaluation of a simple segmentation approach. Given data size constraints, only a few images for the sample case are uploaded.
-- [ISLES'24 clinical data explorer](https://github.com/ezequieldlrosa/isles24/blob/main/utils/isles24_clinical_data_explorer.ipynb) — provides an interactive exploration of the summarized clinical characteristics of the challenge cohort and comparisons between dataset subsets and centers.
+| Notebook | Purpose |
+|---|---|
+| **[Clinical Data Explorer](https://github.com/ezequieldlrosa/isles24/blob/main/utils/isles24_clinical_data_explorer.ipynb)** | Interactive exploration of clinical characteristics, training/test subsets, centers, and statistical comparisons |
+| **[Evaluation Notebook](https://github.com/ezequieldlrosa/isles24/blob/main/utils/isles24_evaluate.ipynb)** | Example workflow for loading ISLES'24 data and evaluating segmentation predictions |
 
 ## Citation
 
+If you use the ISLES'24 dataset, challenge framework, evaluation tools, or clinical data resources, please cite:
+
+> de la Rosa, Ezequiel, et al. **"ISLES'24: Final Infarct Prediction with Multimodal Imaging and Clinical Data. Where Do We Stand?."** *arXiv preprint arXiv:2408.10966* (2024).
+
+```bibtex
+@article{delarosa2024isles24,
+  title   = {ISLES'24: Final Infarct Prediction with Multimodal Imaging and Clinical Data. Where Do We Stand?},
+  author  = {de la Rosa, Ezequiel and others},
+  journal = {arXiv preprint arXiv:2408.10966},
+  year    = {2024}
+}
+```
 
 ## License
-The dataset is released under the CC BY-NC (Attribution-NonCommercial) license. Users of the ISLES'24 data must abide by the Data Usage Policy and the OPEN DATA license, following the definitions of “https://opendata.swiss/en” on open data use. The ISLES'24 repository is under the MIT License.
 
+The ISLES'24 dataset is released under the **CC BY-NC (Attribution-NonCommercial)** license. Users of the ISLES'24 data must abide by the Data Usage Policy and the OPEN DATA license, following the definitions of [opendata.swiss](https://opendata.swiss/en).
+
+The code in this repository is released under the **MIT License**.
