@@ -128,7 +128,6 @@ If you use the ISLES'24 dataset, challenge framework, evaluation tools, or clini
 ```
 
 ## License
-
-The ISLES'24 dataset is released under the **CC BY-NC (Attribution-NonCommercial)** license. Users of the ISLES'24 data must abide by the Data Usage Policy and the OPEN DATA license, following the definitions of [opendata.swiss](https://opendata.swiss/en).
+The ISLES'24 dataset is released under the **CC BY-NC (Attribution-NonCommercial)** license. 
 
 The code in this repository is released under the **MIT License**.
